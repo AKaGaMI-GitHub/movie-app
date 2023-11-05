@@ -1,0 +1,4 @@
+.sidebar{
+    transition: ease-in 1.2ms;
+    -webkit-transition: all 0.25s;
+}
