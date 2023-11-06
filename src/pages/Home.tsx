@@ -78,7 +78,6 @@ export default function Home() {
       const handleScroll = () => {
         const upcomingPoster:any = document.getElementById('upcoming')
         const scrollPosition = window.scrollY;
-        console.log(scrollPosition, upcomingPoster.offsetTop)
         if (scrollPosition > upcomingPoster?.offsetTop - 110) {
           setScrolled(true);
         } else if (scrollPosition < upcomingPoster?.offsetTop) {
@@ -103,7 +102,7 @@ export default function Home() {
     <>
       {dataMovie && popularMovie && upcomingMovie ? (
         <>
-          <Header customClass={`fixed ${isScrolled ? 'bg-white dark:bg-bgDark border-b-2 border-shadow-dark/20 dark:border-shadow-light/20 text-dark dark:text-textDark' : 'text-white'}`} humbergerClass={`${isScrolled ? `text-[#0B0B0B] dark:text-textDark` : `text-white`}`}/>
+          <Header customClass={`fixed ${isScrolled ? 'bg-white dark:bg-bgDark border-b-2 border-shadow-dark/20 dark:border-shadow-light/20 text-dark dark:text-textDark' : 'bg-transparent dark:bg-transparent text-white'}`} humbergerClass={`${isScrolled ? `text-[#0B0B0B] dark:text-textDark` : `bg-transparent text-white`}`}/>
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1, transition: { ease: [0.5, 0.4, 0.3, 0.2], duration: 0.2 } }} viewport={{once: true}}  className="mb-8 bg-white dark:bg-bgDark md:mb-0">
             <Swiper
               slidesPerView={1}
@@ -122,12 +121,13 @@ export default function Home() {
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: 'cover',
                         backgroundImage: 'var(--background-url)',
+                        backgroundPosition: 'center',
                       } as CustomCSS}
-                      className="bg-[image:var(--background-url)] h-[280px] md:h-[580px] text-yellow mb-6 md:mb-8"
+                      className="bg-[image:var(--background-url)] h-[400px] md:h-[580px] text-yellow mb-6 md:mb-8"
                     >
                       <div className="absolute w-full px-4 overflow-visible md:px-8 bottom-10 md:bottom-16">
-                        <div className="text-[5em] md:text-[12em] font-bold">{index.title}</div>
-                        <div className="text-[3em] md:text-[5em] font-semibold">Release Date : {stringDate(index.release_date)}</div>
+                        <div className="text-[7em] md:text-[12em] font-bold">{index.title}</div>
+                        <div className="text-[3.5em] md:text-[5em] font-semibold">Release Date : {stringDate(index.release_date)}</div>
                       </div>
                     </div>
                   </Link>
