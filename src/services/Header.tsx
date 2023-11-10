@@ -7,12 +7,22 @@ type Header = {
 export const header:Header[] = [
     {
         id: 1,
-        nameModule: "Beranda",
+        nameModule: "Home",
         link: "/"
     },
     {
         id: 2,
-        nameModule: "Movie List",
-        link: "/movie-list"
+        nameModule: "Popular",
+        link: "/popular"
+    },
+    {
+        id: 3,
+        nameModule: "Top Rated",
+        link: "/top-rated"
+    },
+    {
+        id: 4,
+        nameModule: "Up Coming",
+        link: "/upcoming"
     },
 ]

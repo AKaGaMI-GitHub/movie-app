@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Header from "../../components/Header"
 import axios from 'axios'
 import { RotateLoader } from "react-spinners"
@@ -52,7 +52,7 @@ interface Movie {
   title: string,
   video: boolean,
   vote_average: number,
-  vote_count: Number
+  vote_count: number
 }
 
 interface PopularMovie {
@@ -80,6 +80,8 @@ export default function DetailMovie() {
   const keyURL = import.meta.env.VITE_APP_KEY
   const imagePath = import.meta.env.VITE_IMG_PATH
 
+  useNavigate()
+
   const fetchData = async () => {
     try {
       const response = await axios.get(`${apiURL}/movie/${id.id}`, {
@@ -99,7 +101,7 @@ export default function DetailMovie() {
       if (response.status && responsePopular.status === 200)
       {
         setData(response.data)
-        setPopular(responsePopular.data.results)
+        setPopular(responsePopular.data.results.slice(0,6))
       }
     } catch (e) {
       console.error(e)
@@ -119,7 +121,7 @@ export default function DetailMovie() {
   useEffect(() => {
     setTimeout(() => {
       fetchData()
-    }, 500)
+    }, 150)
     setData(null)
   }, [id])
 
@@ -143,10 +145,11 @@ export default function DetailMovie() {
                     <div key={index.id} className='px-4 py-1.5 my-1 mr-2 rounded-full bg-blue'>{index.name}</div>
                     ))}
                 </div>
-                <div className='text-justify text-[0.9em] text-[1em] my-1'><b>Tagline :</b> {dataMovie?.tagline}</div>
-                <div className='text-justify text-[0.9em] text-[1em] my-1'><b>Release Date :</b> {stringDate(dataMovie?.release_date)}</div>
-                <div className='text-justify text-[0.9em] text-[1em] my-1'><b>Popularity :</b> {numberFormat(dataMovie?.popularity)}</div>
-                <div className='text-justify text-[0.9em] text-[1em] my-1 flex flex-row items-center gap-1'><b>Rate :</b> {Math.round(dataMovie?.vote_average)} <AiFillStar className="text-yellow text-[20px]" /></div>
+                <div className='text-justify text-[0.9em] md:text-[1em] my-1'><b>Original Title :</b> {dataMovie?.original_title}</div>
+                <div className='text-justify text-[0.9em] md:text-[1em] my-1'><b>Tagline :</b> {dataMovie?.tagline}</div>
+                <div className='text-justify text-[0.9em] md:text-[1em] my-1'><b>Release Date :</b> {stringDate(dataMovie?.release_date)}</div>
+                <div className='text-justify text-[0.9em] md:text-[1em] my-1'><b>Popularity :</b> {numberFormat(dataMovie?.popularity)}</div>
+                <div className='text-justify text-[0.9em] md:text-[1em] my-1 flex flex-row items-center gap-1'><b>Rate :</b> {Math.round(dataMovie?.vote_average)} <AiFillStar className="text-yellow text-[20px]" /></div>
                 <div className='text-justify text-[0.9em] md:text-[1em] my-1'>{dataMovie?.overview}</div>
               </motion.div>
             </div>

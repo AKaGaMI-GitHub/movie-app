@@ -63,9 +63,9 @@ export default function Home() {
         }
       })
       if (response.status == 200 && responsePopular.status == 200) {
-        setData(response.data.results)
-        setPopular(responsePopular.data.results)
-        setUpcoming(responseUpcoming.data.results)
+        setData(response.data.results.slice(0,5))
+        setPopular(responsePopular.data.results.slice(0,6))
+        setUpcoming(responseUpcoming.data.results.slice(0,6))
       }
     } catch (error) {
       alert(`Error : ${error}`)
@@ -90,7 +90,7 @@ export default function Home() {
       return () => {
         window.removeEventListener('scroll', handleScroll);
       };
-    }, 300)
+    }, 150)
     setData(null)
   }, [])
 
@@ -135,10 +135,10 @@ export default function Home() {
               ))}
             </Swiper>
             <motion.div initial={{ y: 10, opacity: 0 }} whileInView={{ y: 0, opacity: 1, transition: { ease: [0.6, 0.01, 0.05, 0.95], duration: 1.2 } }} viewport={{once: true}} className="flex flex-col px-4 md:px-8" id="upcoming">
-              <CardMovie Label={'Popular Movies'} State={popularMovie} DetailRoute={`/detail-movie`} LargeImage={`${imagePath}/w300`} SmallImage={`${imagePath}/w200`} AltImage={`Poster Movies`}/>
+              <CardMovie Label={'Popular Movies'} State={popularMovie} DetailRoute={`/detail-movie`} LargeImage={`${imagePath}/w400`} SmallImage={`${imagePath}/w200`} AltImage={`Poster Movies`}/>
             </motion.div>
             <motion.div initial={{ y: 10, opacity: 0 }} whileInView={{ y: 0, opacity: 1, transition: { ease: [0.6, 0.01, 0.05, 0.95], duration: 1.2 } }} viewport={{once: true}} className="flex flex-col p-4 md:p-8" id="upcoming">
-              <CardMovie Label={'Upcoming Movies'} State={upcomingMovie} DetailRoute={`/detail-movie`} LargeImage={`${imagePath}/w300`} SmallImage={`${imagePath}/w200`} AltImage={`Poster Movies`}/>
+              <CardMovie Label={'Upcoming Movies'} State={upcomingMovie} DetailRoute={`/detail-movie`} LargeImage={`${imagePath}/w400`} SmallImage={`${imagePath}/w200`} AltImage={`Poster Movies`}/>
             </motion.div>
           </motion.div>
         </>
