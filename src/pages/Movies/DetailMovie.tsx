@@ -154,7 +154,7 @@ export default function DetailMovie() {
               </motion.div>
             </div>
             <motion.div initial={{ y: 10, opacity: 0 }} whileInView={{ y: 0, opacity: 1, transition: { ease: [0.6, 0.01, 0.05, 0.95], duration: 1.2 } }} viewport={{once: true}} className="flex flex-col px-4 md:px-0" id="upcoming">
-              <CardMovie Label={'For You'} State={popularMovie} DetailRoute={`/detail-movie`} LargeImage={`${imagePath}/w300`} SmallImage={`${imagePath}/w200`} AltImage={`Poster Movies`}/>
+              <CardMovie Label={'For You'} State={popularMovie} DetailRoute={`/detail-movie`} LargeImage={`${imagePath}/w400`} SmallImage={`${imagePath}/w500`} AltImage={`Poster Movies`}/>
             </motion.div>   
           </div>
         </>

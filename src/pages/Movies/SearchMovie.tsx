@@ -98,10 +98,10 @@ export default function SearchMovie() {
       ) : (
         <div className='flex flex-row flex-wrap justify-center gap-4 m-4 text-dark dark:text-textDark'>
           {dataMovie?.map((index) => (
-            <motion.div key={index.id} className='w-[160px] md:w-[240px] h-auto overflow-hidden bg-white shadow-lg dark:bg-bgDark rounded-xl' initial={{y: 15, opacity: 0}} whileInView={{y: 0, opacity: 1, transition: {ease: [0.6, 0.01, 0.05, 0.95], duration: 1.2}}} viewport={{once: true}}>
+            <motion.div key={index.id} className='w-full md:w-[240px] h-auto overflow-hidden bg-white shadow-lg dark:bg-bgDark rounded-xl' initial={{y: 15, opacity: 0}} whileInView={{y: 0, opacity: 1, transition: {ease: [0.6, 0.01, 0.05, 0.95], duration: 1.2}}} viewport={{once: true}}>
               <Link to={`/detail-movie/${index.id}`} className='flex flex-col'>
-                <div className="flex items-center justify-center md:justify-normal ">
-                  <img src={`${imagePath}/original${index.poster_path}`} className='w-64 '/>
+                <div className="flex h-[18rem] overflow-hidden md:h-full items-center justify-center md:justify-normal ">
+                  <img src={`${imagePath}/original${index.poster_path}`} className='w-full md:w-64'/>
                 </div>
                 <div className='flex flex-col gap-1.5 p-4'>
                   <div className='font-bold text-[1rem] md:text-[1.2rem]'>{index.title}</div>

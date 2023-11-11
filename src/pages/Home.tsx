@@ -125,7 +125,7 @@ export default function Home() {
                       } as CustomCSS}
                       className="bg-[image:var(--background-url)] h-[400px] md:h-[580px] text-yellow mb-6 md:mb-8"
                     >
-                      <div className="absolute w-full px-4 overflow-visible md:px-8 bottom-10 md:bottom-16">
+                      <div className="absolute w-full px-4 overflow-visible bottom-10 md:bottom-16">
                         <div className="text-[7em] md:text-[12em] font-bold">{index.title}</div>
                         <div className="text-[3.5em] md:text-[5em] font-semibold">Release Date : {stringDate(index.release_date)}</div>
                       </div>
@@ -134,11 +134,11 @@ export default function Home() {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <motion.div initial={{ y: 10, opacity: 0 }} whileInView={{ y: 0, opacity: 1, transition: { ease: [0.6, 0.01, 0.05, 0.95], duration: 1.2 } }} viewport={{once: true}} className="flex flex-col px-4 md:px-8" id="upcoming">
-              <CardMovie Label={'Popular Movies'} State={popularMovie} DetailRoute={`/detail-movie`} LargeImage={`${imagePath}/w400`} SmallImage={`${imagePath}/w200`} AltImage={`Poster Movies`}/>
+            <motion.div initial={{ y: 10, opacity: 0 }} whileInView={{ y: 0, opacity: 1, transition: { ease: [0.6, 0.01, 0.05, 0.95], duration: 1.2 } }} viewport={{once: true}} className="flex flex-col px-4" id="upcoming">
+              <CardMovie Label={'Popular Movies'} State={popularMovie} DetailRoute={`/detail-movie`} LargeImage={`${imagePath}/w400`} SmallImage={`${imagePath}/w500`} AltImage={`Poster Movies`}/>
             </motion.div>
-            <motion.div initial={{ y: 10, opacity: 0 }} whileInView={{ y: 0, opacity: 1, transition: { ease: [0.6, 0.01, 0.05, 0.95], duration: 1.2 } }} viewport={{once: true}} className="flex flex-col p-4 md:p-8" id="upcoming">
-              <CardMovie Label={'Upcoming Movies'} State={upcomingMovie} DetailRoute={`/detail-movie`} LargeImage={`${imagePath}/w400`} SmallImage={`${imagePath}/w200`} AltImage={`Poster Movies`}/>
+            <motion.div initial={{ y: 10, opacity: 0 }} whileInView={{ y: 0, opacity: 1, transition: { ease: [0.6, 0.01, 0.05, 0.95], duration: 1.2 } }} viewport={{once: true}} className="flex flex-col p-4" id="upcoming">
+              <CardMovie Label={'Upcoming Movies'} State={upcomingMovie} DetailRoute={`/detail-movie`} LargeImage={`${imagePath}/w400`} SmallImage={`${imagePath}/w500`} AltImage={`Poster Movies`}/>
             </motion.div>
           </motion.div>
         </>
