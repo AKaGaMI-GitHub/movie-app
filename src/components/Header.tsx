@@ -172,7 +172,7 @@ export default function Header({customClass, humbergerClass, modeSearch, textSea
                 ) : dataSearch?.length > 0 ? (
                   <motion.div initial={{opacity: 0}} whileInView={{opacity: 1, transition: { ease: [0.6, 0.01, 0.05, 0.95], duration: 1.2 } }} viewport={{once: true}} className="flex flex-col gap-4 w-[345px]">
                     {dataSearch?.map((index:any) => (
-                      <Link to={`detail-movie/${index.id}`} className="flex flex-row gap-4" key={index.id}>
+                      <Link to={`/detail-movie/${index.id}`} className="flex flex-row gap-4" key={index.id}>
                         <img src={`${imagePath}/original${index.poster_path}`} className="w-20 rounded-xl"/>
                         <div className="flex flex-col gap-1.5 py-2 text-dark dark:text-textDark">
                           <div className="font-bold text-[1.2rem]">{index.title}</div>
